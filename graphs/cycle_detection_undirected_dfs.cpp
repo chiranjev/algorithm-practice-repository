@@ -23,7 +23,9 @@ bool isCyclicDfs(vector<int> adj[],vector<bool> &visited,int V,int u,int parent)
 			return true;
 		}
 		else if(!visited[adj[u][i]]){
-			return isCyclicDfs(adj,visited,V,adj[u][i],u);
+			if(isCyclicDfs(adj,visited,V,adj[u][i],u)){
+				return true;
+			}
 		}
 	}
 	return false;
